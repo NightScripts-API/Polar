@@ -244,8 +244,8 @@ local Actyrn_7104 = UiLib:CreateWindow("Polar | Private | v1 | badovh | cz", Vec
 
 local MainTab = Actyrn_7104:CreateTab("Main")
 local MiscTab = Actyrn_7104:CreateTab("Misc")
-local MiscTab = Actyrn_7104:CreateTab("Beta")
-local MiscTab = Actyrn_7104:CreateTab("Credits")
+local BetaTab = Actyrn_7104:CreateTab("Beta")
+local CreditsTab = Actyrn_7104:CreateTab("Credits")
 
 -- Sectors
 
