@@ -25,16 +25,16 @@ library.theme = {
 	bordercolor = Color3.fromRGB(15, 95, 122), 
 	accentcolor = Color3.fromRGB(15, 95, 122), 
 	accentcolor2 = Color3.fromRGB(88, 65, 108), 
-	outlinecolor = Color3.fromRGB(20, 20, 20), 
+	outlinecolor = Color3.fromRGB(15, 95, 122), 
 	outlinecolor2 = Color3.fromRGB(30, 30, 30), 
 	sectorcolor = Color3.fromRGB(30, 30, 30), 
 	toptextcolor = Color3.fromRGB(255, 255, 255), 
 	topheight = 48, 
-	topcolor = Color3.fromRGB(30, 30, 30), 
+	topcolor = Color3.fromRGB(15, 95, 122), 
 	topcolor2 = Color3.fromRGB(12, 12, 12), 
-	buttoncolor = Color3.fromRGB(49, 49, 49), 
+	buttoncolor = Color3.fromRGB(15, 95, 122), 
 	buttoncolor2 = Color3.fromRGB(29, 29, 29), 
-	itemscolor = Color3.fromRGB(170, 170, 170), 
+	itemscolor = Color3.fromRGB(15, 95, 122), 
 	itemscolor2 = Color3.fromRGB(255, 255, 255)
 }
 
