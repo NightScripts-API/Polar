@@ -266,7 +266,7 @@ local AntiLockSec = MiscTab:CreateSector("Anti Lock", "right")
 
 -- BETA
 
-local v1beta = MiscTab:CreateSector("v1 Beta", "left")
+local v1beta = BetaTab:CreateSector("v1 Beta", "left")
 
 -- Toggles
 
@@ -678,15 +678,23 @@ end)
 
 local ESPEnabled = false
 
+local esp_settings = {
+    raincoat = 255, 255, 255
+    textsize = 10,
+    colour = Color3.fromRGB(raincoat)
+}
+
 v1beta:AddToggle("ESP", false, function(Value)
 	ESPEnabled = Value
 end)
 
+v1beta:AddColorpicker(Color3.fromRGB(255, 255, 255), function(Value)
+	raincoat = Value
+end)
 
-local esp_settings = {
-    textsize = 10,
-    colour = Color3.fromRGB(255, 255, 255)
-}
+
+
+
 
 
 
