@@ -25,7 +25,7 @@ end
 
 -- Variables
 
-local UiLib = loadstring(game:HttpGet("https://pastebin.com/raw/JFzC7iXS"))()
+local UiLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/NightScripts-API/Polar/main/library.lua"))()
 local NotifyLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/NightScripts-API/Polar/main/notilib.lua"))()
 
 local RunService = game:GetService("RunService")
