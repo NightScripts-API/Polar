@@ -678,7 +678,7 @@ end)
 
 local ESPEnabled = false
 
-v1beta:AddButton("ESP", false, function(Value)
+v1beta:AddToggle("ESP", false, function(Value)
 	ESPEnabled = Value
 end)
 
