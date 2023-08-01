@@ -264,6 +264,10 @@ local SelfDotSec = MiscTab:CreateSector("Self Dot", "left")
 
 local AntiLockSec = MiscTab:CreateSector("Anti Lock", "right")
 
+-- BETA
+
+local v1beta = MiscTab:CreateSector("v1 Beta", "left")
+
 -- Toggles
 
 -- MAIN
@@ -670,6 +674,72 @@ end)
 AntiLockSec:AddSlider("Desync Angles", -50, 0.5, 50, 2, function(Value)
 	AntiLock.DesyncAngles = Value
 end)
+
+
+local ESPEnabled = false
+
+v1beta:AddButton("ESP", false, function(Value)
+	ESPEnabled = Value
+end)
+
+
+local esp_settings = {
+    textsize = 10,
+    colour = Color3.fromRGB(255, 255, 255)
+}
+
+
+
+
+local function createESP(player)
+    if player.Character and player.Character:FindFirstChild("Head") and not player.Character.Head:FindFirstChild("Cracked_esp") then
+        local gui = Instance.new("BillboardGui")
+        gui.Name = "Cracked_esp"
+        gui.ResetOnSpawn = false
+        gui.AlwaysOnTop = true
+        gui.LightInfluence = 0
+        gui.Size = UDim2.new(1.75, 0, 1.75, 0)
+
+        local esp = Instance.new("TextLabel", gui)
+        esp.BackgroundTransparency = 1
+        esp.Text = "{" .. player.Name .. "}"
+        esp.Size = UDim2.new(0, 100, 0, 20)
+        esp.BorderSizePixel = 4
+        esp.BorderColor3 = esp_settings.colour
+        esp.BorderSizePixel = 0
+        esp.Font = "GothamSemibold"
+        esp.TextSize = esp_settings.textsize
+        esp.TextColor3 = esp_settings.colour
+
+        gui.Parent = player.Character.Head
+    end
+end
+
+local function destroyESP(player)
+    if player.Character and player.Character:FindFirstChild("Head") and player.Character.Head:FindFirstChild("Cracked_esp") then
+        player.Character.Head:FindFirstChild("Cracked_esp"):Destroy()
+    end
+end
+
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    for _, player in pairs(game:GetService("Players"):GetPlayers()) do
+        if player ~= game:GetService("Players").LocalPlayer then
+            if ESPEnabled then
+                createESP(player)
+            else
+                destroyESP(player)
+            end
+        end
+    end
+end)
+
+
+
+
+
+
+
 
 -- Code
 
