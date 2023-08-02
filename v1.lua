@@ -684,7 +684,7 @@ v1beta:AddToggle("ESP", false, function(Value)
 	ESPEnabled = Value
 end)
 
-v2beta:TextButton("Get Forcefield", false, function(Value)
+v2beta:AddButton("Get Forcefield", false, function(Value)
 	local function teleportTo(position)
     local character = game.Players.LocalPlayer.Character
     if character then
