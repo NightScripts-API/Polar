@@ -684,8 +684,59 @@ v1beta:AddToggle("ESP", false, function(Value)
 	ESPEnabled = Value
 end)
 
-v2beta:AddButton("Get Forcefield")
-	print("button clicked")
+v2beta:AddButton("Get Forcefield", function(Value)
+	local function teleportTo(position)
+    local character = game.Players.LocalPlayer.Character
+    if character then
+        character:SetPrimaryPartCFrame(CFrame.new(position))
+    end
+end
+
+local function getPreviousPosition()
+    local character = game.Players.LocalPlayer.Character
+    if character then
+        return character.PrimaryPart.CFrame.Position
+    end
+end
+
+local function handleTeleporting()
+ 
+    local prevPosition = getPreviousPosition()
+
+    -- Freeze the player
+    local humanoid = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+    if humanoid then
+        humanoid.PlatformStand = true
+    end
+
+    -- Teleport the player 500 units away
+    local teleportPosition = prevPosition + Vector3.new(500, 0, 0)
+    teleportTo(teleportPosition)
+
+    -- Wait for 1 second (you can adjust the duration as needed)
+    wait(1)
+
+    -- Attempt to teleport the player back to the previous position
+    repeat
+        teleportTo(prevPosition)
+        wait()
+    until (game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position - prevPosition).Magnitude <= 1
+
+    -- Check if the player is still alive, if not, wait for them to respawn
+    while game.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and game.Players.LocalPlayer.Character.Humanoid.Health <= 0 do
+        wait()
+    end
+
+    -- Unfreeze the player after teleporting back and respawn
+    if humanoid then
+        humanoid.PlatformStand = false
+    end
+
+    -- Enable checking armor again once the armor value is above 10
+end
+
+handleTeleporting()
+
 end)
 
 
